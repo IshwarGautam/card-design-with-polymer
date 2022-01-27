@@ -26,6 +26,7 @@
     "@polymer/paper-button": "^3.0.1",
     "@polymer/paper-checkbox": "^3.1.0",
     "@polymer/paper-input": "^3.2.1",
+    "@vaadin/vaadin-date-picker": "^22.0.3",
     "lit": "^2.0.0"
   },
   "devDependencies": {

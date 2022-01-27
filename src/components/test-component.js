@@ -4,7 +4,7 @@ import '@polymer/paper-input/paper-input.js';
 import '@polymer/paper-checkbox/paper-checkbox.js';
 import '@polymer/paper-input/paper-textarea.js';
 import '@polymer/paper-button/paper-button.js';
-
+import '@vaadin/date-picker';
 
 export class TestComponent extends LitElement {
   static get styles() {
@@ -20,7 +20,7 @@ export class TestComponent extends LitElement {
         border: 1px solid black;
         padding: 20px;
         width:500px;
-        background:ivory;
+        background:white;
       }
 
       .col2{
@@ -40,15 +40,27 @@ export class TestComponent extends LitElement {
         font-size: 12px;
       }
 
-      img{
-        float:right;
-        margin-top:-30px;
-      }
-
       .checkbox{
         width:100%;
         padding:8px;
       }
+
+      vaadin-date-picker{
+        width:100%;
+      }
+
+      ::-webkit-scrollbar {
+        width:15px
+      }
+    
+      ::-webkit-scrollbar-thumb {
+          background-color:rgb(186,186,192);
+          border-radius:20px;
+          border:5px solid #fff;
+      }
+    
+    
+
     `;
   }
 
@@ -78,12 +90,7 @@ export class TestComponent extends LitElement {
       date: "",
       bindingGroups: [],
       comments: ""
-    };
-
-    this.check = false;
-
-    this.color = 'transparent';
-    
+    };    
   }
 
   render() {
@@ -125,18 +132,15 @@ export class TestComponent extends LitElement {
                 </paper-input>
             </td>
           </tr>
-
           <tr>
-            <td colspan="2"> 
-              <paper-input 
-                  label="Date" 
-                  always-float-label 
-                  placeholder = "DD-MM-YYYY">
-              </paper-input>
-              <img src="../image/date.png" alt = "Date icon"/>
+            <td colspan="2">
+              <vaadin-date-picker class="date"
+                  label = "Date"
+                  Placeholder = "DD-MM-YYYY">
+              </vaadin-date-picker>
             </td>
           </tr>
-
+          
           <tr>
             <td colspan = "2">
               <p>Binding Group</p>
