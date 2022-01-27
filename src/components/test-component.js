@@ -7,6 +7,9 @@ import '@polymer/paper-button/paper-button.js';
 import '@vaadin/date-picker';
 
 export class TestComponent extends LitElement {
+  /**
+   * Styling the Form
+   */
   static get styles() {
     return css`
 
@@ -58,16 +61,7 @@ export class TestComponent extends LitElement {
           border-radius:20px;
           border:5px solid #fff;
       }
-    
-    
-
     `;
-  }
-
-  static get properties() {
-    return {
-      
-    };
   }
 
   constructor() {
@@ -80,17 +74,7 @@ export class TestComponent extends LitElement {
       "BRD3 Affinity_High_Affinity",
       "BRD3 AMP_PNP_competitive",
       "BRD# NRX-0459676_non-competitive"
-    ];
-
-    this.content = {
-      name: "",
-      description: "",
-      ligandsPromoted: 0,
-      totalLigands: 0,
-      date: "",
-      bindingGroups: [],
-      comments: ""
-    };    
+    ];  
   }
 
   render() {
