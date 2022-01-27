@@ -5,6 +5,7 @@ import '@polymer/paper-checkbox/paper-checkbox.js';
 import '@polymer/paper-input/paper-textarea.js';
 import '@polymer/paper-button/paper-button.js';
 
+
 export class TestComponent extends LitElement {
   static get styles() {
     return css`
@@ -29,6 +30,9 @@ export class TestComponent extends LitElement {
       .binding-group{
         border:1px solid gray;
         padding:5px;
+        height:100px;
+        overflow-y:auto;
+        overflow-x:hidden;
       }
 
       p{
@@ -39,6 +43,11 @@ export class TestComponent extends LitElement {
       img{
         float:right;
         margin-top:-30px;
+      }
+
+      .checkbox{
+        width:100%;
+        padding:8px;
       }
     `;
   }
@@ -71,6 +80,10 @@ export class TestComponent extends LitElement {
       comments: ""
     };
 
+    this.check = false;
+
+    this.color = 'transparent';
+    
   }
 
   render() {
@@ -129,7 +142,11 @@ export class TestComponent extends LitElement {
               <p>Binding Group</p>
               <div class = "binding-group">
                 ${this.bindingGroups.map((group) => html`
-                  <paper-checkbox noink>${group}</paper-checkbox><br/>
+                  <paper-checkbox noink class="checkbox"
+                    ?checked = ${this.check}
+                    @change = ${this.updateChecklist}>
+                      ${group}
+                    </paper-checkbox><br/>
                 `)}
               </div>
             </td>
@@ -160,6 +177,13 @@ export class TestComponent extends LitElement {
       </table>
       </div>
     `;
+  }
+
+  updateChecklist = e => {
+    this.check = e.target.checked;
+
+    this.color = this.check?'rgb(245,245,245)':'transparent';
+    e.target.style.background = this.color;
   }
 }
 
